@@ -9,10 +9,31 @@
     "vue": "^3.0.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@vue/compiler-sfc": "^3.0.2",
     "@vuedx/typecheck": "^0.2.4-0",
     "@vuedx/typescript-plugin-vue": "^0.2.4-0",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
     "typescript": "^4.0.3",
     "vite": "^1.0.0-rc.8"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,vue}": [
+      ""
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
